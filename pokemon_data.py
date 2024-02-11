@@ -23,6 +23,7 @@ for generation in range(1, 7):
     # Create a pie chart with Plotly
     labels = ['Type I', 'Type I/II']
     values = [one_type_count, two_types_count]
+    
     # Custom colors
     colors = [type_colors[label] for label in labels] 
     fig = px.pie(names=labels, 
