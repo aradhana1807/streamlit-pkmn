@@ -60,13 +60,7 @@ A small inference about the pie chart depicting Pokémon with one type versus th
 with two types based on generations could reveal an interesting trend. 
 For instance, it might show that in earlier generations, 
 there was a higher prevalence of Pokémon with only one type, 
-indicating simpler designs or gameplay mechanics. 
-
-
-Conversely, in later generations, there could be a more balanced 
-distribution or even a slight increase in Pokémon with two types, 
-reflecting a desire for more complexity and diversity in Pokémon 
-designs and battles as the franchise evolved.
+indicating simpler designs or gameplay mechanics.
 '''
 st.markdown(multi_gen)
 # Group data by Generation and count the number of Pokémon in each generation
