@@ -3,13 +3,16 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+
 st.set_page_config(
-    page_title="Pokémon Dataset",
+    page_title="Pokémon Dataset Analysis",
     page_icon="🔴",
 )
 
 df = pd.read_csv("pokemon.csv")
 
+with open( "style.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 st.title("Pokémon Data Analysis")
 
 multi_gen = '''### Pokémon Distribution across Generation
