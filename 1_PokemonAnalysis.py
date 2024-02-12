@@ -12,19 +12,29 @@ df = pd.read_csv("pokemon.csv")
 
 st.title("Pokémon Data Analysis")
 
+multi_gen = '''### Pokémon Distribution across Generation
+
+We are seeing the total count of Pokémon throughtout the six generation.
+'''
+st.markdown(multi_gen)
+# Group data by Generation and count the number of Pokémon in each generation
+generation_counts = df['Generation'].value_counts().reset_index()
+generation_counts.columns = ['Generation', 'Total Number of Pokémon']
+
+# Sort the data by Generation
+generation_counts = generation_counts.sort_values(by='Generation')
+
+# Create bar plot using Plotly Express
+fig = px.bar(generation_counts, x='Generation', y='Total Number of Pokémon', title='Total Number of Pokémon in Each Generation')
+
+# Display the plot using Streamlit
+st.plotly_chart(fig)
+
 multi_type = '''### Type I and Type I/II
-
-A small inference about the pie chart depicting Pokémon with one type versus those 
-with two types based on generations could reveal an interesting trend. 
-For instance, it might show that in earlier generations, 
-there was a higher prevalence of Pokémon with only one type, 
-indicating simpler designs or gameplay mechanics. 
+This depicts the percentage of Pokémon with only Type I and those with both Type I and Type II across six generations.
 
 
-Conversely, in later generations, there could be a more balanced 
-distribution or even a slight increase in Pokémon with two types, 
-reflecting a desire for more complexity and diversity in Pokémon 
-designs and battles as the franchise evolved.
+Disclaimer: This dataset includes Mega evolutions of Pokémon in the generation respective to their initial form. As such, there may be slight variations in the data analysis.
 '''
 st.markdown(multi_type)
 # Define colors for each type
@@ -54,24 +64,3 @@ for generation in range(1, 7):
 
 
 
-multi_gen = '''### Type I and Type I/II
-
-A small inference about the pie chart depicting Pokémon with one type versus those 
-with two types based on generations could reveal an interesting trend. 
-For instance, it might show that in earlier generations, 
-there was a higher prevalence of Pokémon with only one type, 
-indicating simpler designs or gameplay mechanics.
-'''
-st.markdown(multi_gen)
-# Group data by Generation and count the number of Pokémon in each generation
-generation_counts = df['Generation'].value_counts().reset_index()
-generation_counts.columns = ['Generation', 'Total Number of Pokémon']
-
-# Sort the data by Generation
-generation_counts = generation_counts.sort_values(by='Generation')
-
-# Create bar plot using Plotly Express
-fig = px.bar(generation_counts, x='Generation', y='Total Number of Pokémon', title='Total Number of Pokémon in Each Generation')
-
-# Display the plot using Streamlit
-st.plotly_chart(fig)
