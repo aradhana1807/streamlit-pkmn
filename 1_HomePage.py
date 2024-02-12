@@ -1,6 +1,6 @@
 import streamlit as st
 
-image_path = "images\pokemon.png"
+image_path = "images/pokemon.png"
 st.image(image_path)
 
 centered_markdown = """
