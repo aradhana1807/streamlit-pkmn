@@ -37,8 +37,8 @@ def page_link_button(page_name, button_label):
 
 # Define your pages
 pages = {
-    '2_SearchIndex': 'Search Index',
-    '3_PokemonAnalysis': 'Pokemon Analysis',
+    'SearchIndex': 'Search Index',
+    'PokemonAnalysis': 'Pokemon Analysis',
     # Add more pages as needed
 }
 
